@@ -32,7 +32,7 @@ const userMiddleware  = require("../middleware/userMiddleware")
 userRouter.post("/register", register);
 userRouter.get("/all", getAllUsers);
 userRouter.get("/:id", getUserById);
-userRouter.put("/:id", update);
-userRouter.delete("/:id", deleteUser);
+userRouter.put("/:id",userMiddleware, update); // updation can only be performed by the user only 
+userRouter.delete("/:id",userMiddleware,deleteUser); // only user has the power to delete himself
 
 module.exports = userRouter;
